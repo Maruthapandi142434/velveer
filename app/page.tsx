@@ -11,11 +11,6 @@ import {
   BookOpen,
   RotateCcw,
   Map,
-  Phone,
-  Mail,
-  Facebook,
-  Twitter,
-  Linkedin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -26,7 +21,8 @@ import Footer from "@/components/Footer"; // Import the Footer
 const heroSlides = [
   {
     id: 1,
-     image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753870672/13454919_5234330_nzmpme.jpg",
+    image:
+      "https://res.cloudinary.com/daggx9p24/image/upload/v1753870672/13454919_5234330_nzmpme.jpg",
     subtitle: "IMAGINATION TO REALITY",
     title: "REALITY TECHNOLOGY",
     description: "Let's get the real feel using Augumented Reality and Virtual Reality",
@@ -34,7 +30,8 @@ const heroSlides = [
   },
   {
     id: 2,
-     image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753870396/11668726_20945746_izvfff.jpg",
+    image:
+      "https://res.cloudinary.com/daggx9p24/image/upload/v1753870396/11668726_20945746_izvfff.jpg",
     subtitle: "IDEATE & EXECUTE",
     title: "APP & EDUCATIONAL PRODUCT DEVELOPMENT",
     description:
@@ -43,7 +40,8 @@ const heroSlides = [
   },
   {
     id: 3,
-     image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753870594/25225479_7016016_kcxvba.jpg",
+    image:
+      "https://res.cloudinary.com/daggx9p24/image/upload/v1753870594/25225479_7016016_kcxvba.jpg",
     subtitle: "LETS GO CREATIVE",
     title: "DESIGN & MODELING",
     description:
@@ -52,14 +50,15 @@ const heroSlides = [
   },
   {
     id: 4,
-    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753870514/2150041860_t9mdh0.jpg",
+    image:
+      "https://res.cloudinary.com/daggx9p24/image/upload/v1753870514/2150041860_t9mdh0.jpg",
     subtitle: "ANYTHING & EVERYTHING",
     title: "PREPRESS / DIGITAL SERVICES",
     description:
       "Why go behind multiple suppliers for various services, when all the services are offered under the single roof. Simon and Sons offers end to end services related to Prepress & Digital Publishing. Anything & Everything related to that can be handled at ease.",
     bgColor: "bg-gradient-to-r from-orange-700/90 to-orange-800/90",
   },
-]
+];
 
 const services = [
   {
@@ -87,38 +86,38 @@ const services = [
     title: "Geospatial And Mapping Services",
     description: "At Simon and Sons we offer end to end Geospatial and Mapping services",
   },
-]
+];
 
 export default function Component() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
-    }, 5000)
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [isAutoPlaying])
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
-  }
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
-  }
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
 
   const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
+    setCurrentSlide(index);
+  };
 
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <Header />  {/* Use the Header component */}
+      <Header />
 
       {/* Hero Section with Auto-Slide */}
       <section className="relative h-screen overflow-hidden">
@@ -134,60 +133,51 @@ export default function Component() {
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
             <div className="relative h-full">
-              <Image
-                src={heroSlides[currentSlide].image || "/placeholder.svg"}
-                alt={heroSlides[currentSlide].title}
-                fill
-                className="object-cover"
-                priority
-              />
               <div className={`absolute inset-0 ${heroSlides[currentSlide].bgColor}`} />
               <div className="absolute inset-0 flex items-center">
-  <div className="container mx-auto px-4">
-    <div className="grid lg:grid-cols-2 gap-8 items-center">
-      
-      {/* Left: Image */}
-      <div className="relative w-full h-[500px] rounded-xl overflow-hidden shadow-lg">
-        <Image
-          src={heroSlides[currentSlide].image || "/placeholder.svg"}
-          alt={heroSlides[currentSlide].title}
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
+                <div className="container mx-auto px-4">
+                  <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    {/* Left: Image */}
+                    <div className="relative w-full h-[500px] rounded-xl overflow-hidden shadow-lg">
+                      <Image
+                        src={heroSlides[currentSlide].image || "/placeholder.svg"}
+                        alt={heroSlides[currentSlide].title}
+                        fill
+                        className="object-cover object-center"
+                        priority
+                      />
+                    </div>
 
-      {/* Right: Text content */}
-      <div className="text-white space-y-6">
-        <motion.p
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-lg font-medium tracking-wide"
-        >
-          {heroSlides[currentSlide].subtitle}
-        </motion.p>
-        <motion.h1
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-        >
-          {heroSlides[currentSlide].title}
-        </motion.h1>
-        <motion.p
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-lg md:text-xl leading-relaxed max-w-2xl"
-        >
-          {heroSlides[currentSlide].description}
-        </motion.p>
-      </div>
-    </div>
-  </div>
-</div>
-
+                    {/* Right: Text content */}
+                    <div className="text-white space-y-6">
+                      <motion.p
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.2, duration: 0.6 }}
+                        className="text-lg font-medium tracking-wide"
+                      >
+                        {heroSlides[currentSlide].subtitle}
+                      </motion.p>
+                      <motion.h1
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                      >
+                        {heroSlides[currentSlide].title}
+                      </motion.h1>
+                      <motion.p
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.6, duration: 0.6 }}
+                        className="text-lg md:text-xl leading-relaxed max-w-2xl"
+                      >
+                        {heroSlides[currentSlide].description}
+                      </motion.p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -197,7 +187,8 @@ export default function Component() {
           onClick={prevSlide}
           className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-6 h-6"
+         />
         </button>
         <button
           onClick={nextSlide}
@@ -213,7 +204,9 @@ export default function Component() {
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide ? "bg-white scale-125" : "bg-white/50 hover:bg-white/75"
+                index === currentSlide
+                  ? "bg-white scale-125"
+                  : "bg-white/50 hover:bg-white/75"
               }`}
             />
           ))}
@@ -266,7 +259,7 @@ export default function Component() {
             </div>
             <div className="flex justify-center">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-07-30%20152343-3HZONtO9aTt5jpc4YvWwEB3wRFwjNG.png"
+                src="https://res.cloudinary.com/daggx9p24/image/upload/v1753870197/11235938_11121_s2ejsf.jpg"
                 alt="About illustration"
                 width={500}
                 height={400}
@@ -278,7 +271,7 @@ export default function Component() {
       </section>
 
       {/* Footer */}
-      <Footer /> {/* Use the Footer component */}
+      <Footer />
     </div>
-  )
+  );
 }

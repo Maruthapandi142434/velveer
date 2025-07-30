@@ -32,22 +32,22 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="text-gray-300 space-y-2">
             <li>
-              <Link href="#" className="hover:text-white">Home</Link>
+              <Link href="/" className="hover:text-white">Home</Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">About</Link>
+              <Link href="/about" className="hover:text-white">About</Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">Our Team</Link>
+              <Link href="/our-people" className="hover:text-white">Our Team</Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">Services</Link>
+              <Link href="/services/it-governance" className="hover:text-white">Services</Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">Training</Link>
+              <Link href="/training" className="hover:text-white">Training</Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">Contact</Link>
+              <Link href="/contact" className="hover:text-white">Contact</Link>
             </li>
           </ul>
         </div>
@@ -57,22 +57,22 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">Our Services</h3>
           <ul className="text-gray-300 space-y-2">
             <li>
-              <Link href="#" className="hover:text-white">IT Governance and Strategy</Link>
+              <Link href="/services/it-governance" className="hover:text-white">IT Governance and Strategy</Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">GRC - Governance, Risk and Compliance</Link>
+              <Link href="/services/grc" className="hover:text-white">GRC - Governance, Risk and Compliance</Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">Automotive Security</Link>
+              <Link href="/services/automotive-security" className="hover:text-white">Automotive Security</Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">Cyber Security Assessment</Link>
+              <Link href="/services/cyber-security" className="hover:text-white">Cyber Security Assessment</Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">AI Consulting</Link>
+              <Link href="/services/ai-consulting" className="hover:text-white">AI Consulting</Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">ERP Advisory</Link>
+              <Link href="/services/erp-advisory" className="hover:text-white">ERP Advisory</Link>
             </li>
           </ul>
         </div>
@@ -96,9 +96,9 @@ export default function Footer() {
       <div className="container mx-auto px-4 mt-8 flex flex-col md:flex-row justify-between items-center border-t border-gray-700 pt-8">
         <p className="text-gray-400 text-sm">© 2024 Velveer. All rights reserved.</p>
         <div className="space-x-4 text-sm">
-          <Link href="#" className="text-gray-400 hover:text-white">Privacy Policy</Link>
-          <Link href="#" className="text-gray-400 hover:text-white">Terms of Service</Link>
-          <Link href="#" className="text-gray-400 hover:text-white">Cookie Policy</Link>
+          <Link href="/privacy-policy" className="text-gray-400 hover:text-white">Privacy Policy</Link>
+          <Link href="/terms-of-service" className="text-gray-400 hover:text-white">Terms of Service</Link>
+          <Link href="/cookie-policy" className="text-gray-400 hover:text-white">Cookie Policy</Link>
         </div>
       </div>
     </footer>
