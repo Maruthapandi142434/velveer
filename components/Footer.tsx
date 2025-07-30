@@ -1,199 +1,104 @@
 // components/Footer.tsx
-
-import Link from "next/link";
-import {
-  Phone,
-  Mail,
-  Facebook,
-  Twitter,
-  Linkedin,
-} from "lucide-react";
+import React from 'react';
+import Link from 'next/link';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-cyan-500 text-white py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Experience Section */}
-          <div>
-            <h3 className="text-xl font-bold mb-6">Experience our Expertise</h3>
-            <div className="flex items-center mb-6">
-              <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mr-4">
-                <div className="w-12 h-12 bg-white/30 rounded-full"></div>
-              </div>
-            </div>
-            <p className="mb-4">To feel the experience, get in touch with us at</p>
-            <div className="space-y-2">
-              <div className="flex items-center">
-                <Phone className="w-4 h-4 mr-2" />
-                <span>+91 44 4380 6826</span>
-              </div>
-              <div className="flex items-center">
-                <Mail className="w-4 h-4 mr-2" />
-                <span>info@simonnsons.com</span>
-              </div>
-            </div>
+    <footer className="bg-[#082A5B] text-white py-12 md:py-16">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Velveer Info */}
+        <div>
+          <h3 className="text-xl font-semibold mb-4">Velveer</h3>
+          <p className="text-gray-300 mb-4">
+            Business Management and Consulting Company specializing in cybersecurity services and digital transformation solutions.
+          </p>
+          <div className="flex items-center mb-2">
+            <Mail className="h-4 w-4 mr-2 text-gray-400" />
+            <a href="mailto:info@velveer.com" className="text-gray-300 hover:text-white">info@velveer.com</a>
+          </div>
+          <div className="flex items-center mb-2">
+            <Phone className="h-4 w-4 mr-2 text-gray-400" />
+            <span className="text-gray-300">+91 (xxx) xxx-xxxx</span>
+          </div>
+          <div className="flex items-center">
+            <MapPin className="h-4 w-4 mr-2 text-gray-400" />
+            <span className="text-gray-300">India</span>
+          </div>
+        </div>
+
+        {/* Quick Links */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul className="text-gray-300 space-y-2">
+            <li>
+              <Link href="#" className="hover:text-white">Home</Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white">About</Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white">Our Team</Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white">Services</Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white">Training</Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white">Contact</Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Our Services */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Our Services</h3>
+          <ul className="text-gray-300 space-y-2">
+            <li>
+              <Link href="#" className="hover:text-white">IT Governance and Strategy</Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white">GRC - Governance, Risk and Compliance</Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white">Automotive Security</Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white">Cyber Security Assessment</Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white">AI Consulting</Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white">ERP Advisory</Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Business Hours and Support */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Business Hours</h3>
+          <div className="text-gray-300">
+            <p>Monday - Friday: <span className="ml-2">9:00 AM - 6:00 PM</span></p>
+            <p>Saturday: <span className="ml-2">10:00 AM - 4:00 PM</span></p>
+            <p>Sunday: <span className="ml-2">Closed</span></p>
           </div>
 
-          {/* Services Column 1 */}
-          <div>
-            <ul className="space-y-3">
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Prepress Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Digital Publishing
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  eLearning
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Conversion Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Cartography Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Translation & Transcription Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Shared Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  App Development
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Scanning & Digitization Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Geospatial & Mapping Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Web Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Robotics and Development
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Reality Technology
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Design Services
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Services Column 2 */}
-          <div>
-            <ul className="space-y-3">
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  About us
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Founder
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Executive Management
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Core Team
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Service Offering
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-cyan-200">
-                  Contact us
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <div className="mb-6">
-              <p className="font-bold">SSPDL Building,</p>
-              <p>Alpha City,Gamma Block,</p>
-              <p>5th Floor, Navalur,</p>
-              <p>Chennai – 600 130</p>
-              <p className="mt-2">+91 44 4380 6826</p>
-              <p>info@simonnsons.com</p>
-            </div>
-            <div className="flex space-x-4">
-              <Link
-                href="#"
-                className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30"
-              >
-                <Facebook className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#"
-                className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30"
-              >
-                <Twitter className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#"
-                className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30"
-              >
-                <Linkedin className="w-5 h-5" />
-              </Link>
-            </div>
+          <div className="bg-[#0A3874] p-4 mt-6 rounded">
+            <h4 className="text-md font-semibold mb-2">Need Urgent Support?</h4>
+            <p className="text-gray-300 text-sm">For critical security issues, we provide 24/7 emergency response services.</p>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/20 mt-12 pt-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-white/80">Copyright © 2024. All rights reserved.</p>
+      <div className="container mx-auto px-4 mt-8 flex flex-col md:flex-row justify-between items-center border-t border-gray-700 pt-8">
+        <p className="text-gray-400 text-sm">© 2024 Velveer. All rights reserved.</p>
+        <div className="space-x-4 text-sm">
+          <Link href="#" className="text-gray-400 hover:text-white">Privacy Policy</Link>
+          <Link href="#" className="text-gray-400 hover:text-white">Terms of Service</Link>
+          <Link href="#" className="text-gray-400 hover:text-white">Cookie Policy</Link>
         </div>
       </div>
     </footer>
