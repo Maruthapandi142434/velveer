@@ -49,15 +49,15 @@ export default function Header() {
             </Link>
           </div>
           <nav className="hidden md:flex space-x-8 items-center">
-            <Link href="/" className="text-cyan-500 hover:text-cyan-600 font-medium">
+            <AnimatedLink href="/" className="text-cyan-500 hover:text-cyan-600 font-medium">
               Home
-            </Link>
-            <Link href="/about" className="text-gray-600 hover:text-cyan-500 font-medium">
+            </AnimatedLink>
+            <AnimatedLink href="/about" className="text-gray-600 hover:text-cyan-500 font-medium">
               About
-            </Link>
-            <Link href="/our-people" className="text-gray-600 hover:text-cyan-500 font-medium">
+            </AnimatedLink>
+            <AnimatedLink href="/our-people" className="text-gray-600 hover:text-cyan-500 font-medium">
               Our Team
-            </Link>
+            </AnimatedLink>
 
             {/* Services Dropdown */}
             <div
@@ -77,26 +77,52 @@ export default function Header() {
                 className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-xl overflow-hidden z-10 ${isServicesOpen ? 'block' : 'hidden'}`}
               >
                 {services.map((service) => (
-                  <Link
+                  <AnimatedLink
                     key={service.name}
                     href={service.href}
                     className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-cyan-500"
                   >
                     {service.name}
-                  </Link>
+                  </AnimatedLink>
                 ))}
               </div>
             </div>
 
-            <Link href="/training" className="text-gray-600 hover:text-cyan-500 font-medium">
+            <AnimatedLink href="/training" className="text-gray-600 hover:text-cyan-500 font-medium">
               Training
-            </Link>
-            <Link href="/contact" className="text-gray-600 hover:text-cyan-500 font-medium">
+            </AnimatedLink>
+            <AnimatedLink href="/contact" className="text-gray-600 hover:text-cyan-500 font-medium">
               Contact
-            </Link>
+            </AnimatedLink>
           </nav>
         </div>
       </div>
     </header>
   );
 }
+
+interface AnimatedLinkProps {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+const AnimatedLink: React.FC<AnimatedLinkProps> = ({ href, children, className }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <Link
+      href={href}
+      className={`${className} relative overflow-hidden group`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {children}
+      <span
+        className={`absolute bottom-0 left-0 w-full h-0.5 bg-cyan-500 transform scale-x-0 origin-left transition-transform duration-300 ease-in-out ${
+          isHovered ? 'scale-x-100' : 'scale-x-0'
+        }`}
+      ></span>
+    </Link>
+  );
+};
