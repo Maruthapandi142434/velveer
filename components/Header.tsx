@@ -4,25 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from 'react';
 
-const services = [
-  { name: 'IT Governance and Strategy', href: '/services/it-governance' },
-  { name: 'GRC- Governance, Risk and Compliance', href: '/services/grc' },
-  { name: 'Automotive Security', href: '/services/automotive-security' },
-  { name: 'Cyber Security Assessment', href: '/services/cyber-security' },
-  { name: 'AI Consulting', href: '/services/ai-consulting' },
-  { name: 'ERP Advisory', href: '/services/erp-advisory' },
-  { name: 'Training and Coaching', href: '/services/training' },
-];
-
 export default function Header() {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !((dropdownRef.current as any).contains(event.target))) {
-        setIsServicesOpen(false);
-      }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -32,11 +19,11 @@ export default function Header() {
   }, [dropdownRef]);
 
   const handleMouseEnter = () => {
-    setIsServicesOpen(true);
+    setIsHovered(true)
   };
 
   const handleMouseLeave = () => {
-    setIsServicesOpen(false);
+    setIsHovered(false);
   };
 
   return (
@@ -58,36 +45,9 @@ export default function Header() {
             <AnimatedLink href="/our-people" className="text-gray-600 hover:text-cyan-500 font-medium">
               Our Team
             </AnimatedLink>
-
-            {/* Services Dropdown */}
-            <div
-              className="relative group"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              ref={dropdownRef}
-            >
-              <button
-                className="text-gray-600 hover:text-cyan-500 font-medium"
-                aria-expanded={isServicesOpen}
-              >
-                Our Services
-                <svg className="fill-current h-4 w-4 inline-block ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-              </button>
-              <div
-                className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-xl overflow-hidden z-10 ${isServicesOpen ? 'block' : 'hidden'}`}
-              >
-                {services.map((service) => (
-                  <AnimatedLink
-                    key={service.name}
-                    href={service.href}
-                    className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-cyan-500"
-                  >
-                    {service.name}
-                  </AnimatedLink>
-                ))}
-              </div>
-            </div>
-
+            <AnimatedLink href="/services" className="text-gray-600 hover:text-cyan-500 font-medium">
+            Our Services
+            </AnimatedLink>
             <AnimatedLink href="/training" className="text-gray-600 hover:text-cyan-500 font-medium">
               Training
             </AnimatedLink>
