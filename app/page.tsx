@@ -219,7 +219,7 @@ export default function Component() {
             </section>
 
             {/* New Our Services Section */}
-            <section className="py-16 bg-gray-100">
+            {/* <section className="py-16 bg-gray-100">
                 <div className="container mx-auto px-4">
                     <h2 className="text-5xl font-bold text-center text-gray-800 mb-12">
                         Our <span className="text-cyan-500">Services</span>
@@ -237,13 +237,13 @@ export default function Component() {
                                 </div>
                                 <div className="p-6 bg-white rounded-b-lg">
                                     <h3 className="text-xl font-semibold text-gray-700 mb-2">{service.name}</h3>
-                                    {/* Add a short description here if you have one */}
+                                     Add a short description here if you have one 
                                 </div>
                             </Link>
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */ }
 
 
             {/* About Section */}
@@ -252,7 +252,7 @@ export default function Component() {
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div>
                             <h2 className="text-4xl font-bold text-gray-800 mb-8">
-                                ABOUT <span className="text-cyan-500">SIMON AND SONS</span>
+                                ABOUT <span className="text-cyan-500">Velveer</span>
                             </h2>
                             <p className="text-gray-600 leading-relaxed mb-8">
                                 We are part of a big business family running variety of businesses in different areas & offering end to
@@ -277,6 +277,38 @@ export default function Component() {
                     </div>
                 </div>
             </section>
+             {/* Contact Banner */}
+    <section
+  className="py-16 relative" // Relative positioning for absolute image
+  style={{
+    backgroundImage:
+      "url('https://res.cloudinary.com/do5h58llu/image/upload/v1753944901/118186_rnqrxx.jpg')", // Replace with your image URL
+    backgroundSize: "cover", // Cover the entire area
+    backgroundPosition: "center", // Center the image
+    backgroundAttachment: "fixed", // Optional: Fixed background
+  }}
+>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-blue-100 opacity-80"></div>{" "}
+  {/* Semi-transparent overlay */}
+  <div className="container mx-auto px-4 text-center relative z-10">
+    {" "}
+    {/* Content with higher z-index */}
+    <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      Ready to Elevate Your Business?
+    </h2>
+    <p className="text-gray-700 mb-8 text-lg">
+      Contact our experts for a consultation and discover how our IT
+      consulting and business solutions can drive your success.
+    </p>
+    <Link
+      href="/contact"
+      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 inline-block shadow-md" // Added shadow
+    >
+      Contact Us
+    </Link>
+  </div>
+</section>
 
             {/* Footer */}
             <Footer />
