@@ -8,7 +8,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const OurPeoplePage = () => {
-  const backgroundImage = "https://images.unsplash.com/photo-1519389950473-47a0277814e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  const backgroundImage = "https://res.cloudinary.com/do5h58llu/image/upload/v1753940562/group-people-working-out-business-plan-office_e4endg.jpg";
   const teamMembers = [
     {
       name: "Vijay Vincent",

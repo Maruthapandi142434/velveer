@@ -24,14 +24,14 @@ export default function AboutPage() {
         {/* Overlay and Breadcrumb */}
         <div className="absolute inset-0 bg-black/30 flex items-center justify-start text-white px-4 md:px-8 lg:px-16">
           <div className="container mx-auto flex items-center">
-            
+
             <div>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 text-white">About Us</h1>
               <div className="flex items-center text-sm md:text-base">
                 <Link href="/" className="hover:underline text-white">
                   Home
                 </Link>
-                <span className="mx-2 text-white"></span>
+                <span className="mx-2 text-white">></span> {/* Added '>' */}
                 <span className="text-white">About Us</span>
               </div>
             </div>
@@ -41,13 +41,13 @@ export default function AboutPage() {
 
       {/* Content Section */}
       <section className="py-12 px-4 md:px-8 lg:px-16">
-        <div className="container mx-auto max-w-5xl flex flex-col md:flex-row items-center"> {/* Modified Container */}
+        <div className="container mx-auto max-w-5xl flex flex-col md:flex-row items-center">
           <Image
             src="https://velveer.com/wp-content/uploads/elementor/thumbs/logo-final1l-pdqtybt3ujsmzbhfumwj8y9sero761n6pwivd7d93c.png"
             alt="Velveer Logo"
-            width={200} // Adjusted size
-            height={100} // Adjusted size
-            className="mr-8 mb-4 md:mb-0" // Added margin
+            width={200}
+            height={100}
+            className="mr-8 mb-4 md:mb-0"
           />
           <div className="text-gray-700 leading-relaxed">
             <h2 className="text-3xl font-bold text-gray-800 mb-6">About Velveer</h2>

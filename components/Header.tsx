@@ -1,15 +1,19 @@
 // components/Header.tsx
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from 'react';
+import { usePathname } from 'next/navigation'; // Import usePathname
 
 export default function Header() {
   const [isHovered, setIsHovered] = useState(false);
   const dropdownRef = useRef(null);
+  const pathname = usePathname(); // Get the current path
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
+      // You can add functionality related to outside clicks here if needed
     }
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -36,22 +40,22 @@ export default function Header() {
             </Link>
           </div>
           <nav className="hidden md:flex space-x-8 items-center">
-            <AnimatedLink href="/" className="text-cyan-500 hover:text-cyan-600 font-medium">
+            <AnimatedLink href="/" className={`font-medium ${pathname === '/' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
               Home
             </AnimatedLink>
-            <AnimatedLink href="/about" className="text-gray-600 hover:text-cyan-500 font-medium">
+            <AnimatedLink href="/about" className={`font-medium ${pathname === '/about' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
               About
             </AnimatedLink>
-            <AnimatedLink href="/our-people" className="text-gray-600 hover:text-cyan-500 font-medium">
+            <AnimatedLink href="/our-people" className={`font-medium ${pathname === '/our-people' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
               Our Team
             </AnimatedLink>
-            <AnimatedLink href="/services" className="text-gray-600 hover:text-cyan-500 font-medium">
-            Our Services
+            <AnimatedLink href="/services" className={`font-medium ${pathname === '/services' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
+              Our Services
             </AnimatedLink>
-            <AnimatedLink href="/training" className="text-gray-600 hover:text-cyan-500 font-medium">
+            <AnimatedLink href="/training" className={`font-medium ${pathname === '/training' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
               Training
             </AnimatedLink>
-            <AnimatedLink href="/contact" className="text-gray-600 hover:text-cyan-500 font-medium">
+            <AnimatedLink href="/contact" className={`font-medium ${pathname === '/contact' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
               Contact
             </AnimatedLink>
           </nav>
@@ -69,18 +73,20 @@ interface AnimatedLinkProps {
 
 const AnimatedLink: React.FC<AnimatedLinkProps> = ({ href, children, className }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const pathname = usePathname();
+  const isActive = pathname === href;
 
   return (
     <Link
       href={href}
-      className={`${className} relative overflow-hidden group`}
+      className={`${className} relative overflow-hidden group ${isActive ? 'text-cyan-500' : ''}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {children}
       <span
         className={`absolute bottom-0 left-0 w-full h-0.5 bg-cyan-500 transform scale-x-0 origin-left transition-transform duration-300 ease-in-out ${
-          isHovered ? 'scale-x-100' : 'scale-x-0'
+          isHovered || isActive ? 'scale-x-100' : 'scale-x-0'
         }`}
       ></span>
     </Link>
