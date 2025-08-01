@@ -1,47 +1,52 @@
-// app/training/page.tsx
-"use client";
+'use client';
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 
 const TrainingPage = () => {
-  const backgroundImage = "https://res.cloudinary.com/do5h58llu/image/upload/v1753940295/meeting-mature-office-showing-presenter_cfpt40.jpg"; // Replace with your desired background image
+  const heroImage =
+    'https://res.cloudinary.com/do5h58llu/image/upload/v1753940295/meeting-mature-office-showing-presenter_cfpt40.jpg';
 
   return (
     <>
       <Header />
 
-      {/* Full-Screen Image with Overlay and Breadcrumb */}
-      <section className="relative h-[300px] md:h-[400px] lg:h-[450px] w-full overflow-hidden">
-        <Image
-          src={backgroundImage} // Use the background image
-          alt="Training and Coaching"
-          fill
-          className="object-cover object-center blur-sm grayscale"
-          style={{ objectPosition: 'top' }}
-          priority
-        />
-
-        {/* Overlay and Breadcrumb */}
-        <div className="absolute inset-0 bg-black/30 flex items-center justify-start text-white px-4 md:px-8 lg:px-16">
-          <div className="container mx-auto">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 text-white">Training and Coaching</h1>
-            <div className="flex items-center text-sm md:text-base">
-              <Link href="/" className="hover:underline text-white">
+      {/* Split Hero Section */}
+      <section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px]">
+        {/* Left: Text and Breadcrumb */}
+        <div className="flex items-center justify-center bg-gray-100">
+          <div className="p-8 md:p-12 lg:p-16 text-left max-w-xl">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              Training & <span className="text-teal-600">Coaching</span>
+            </h1>
+            <div className="h-0.5 w-12 bg-teal-600 mb-4"></div>
+            <div className="text-sm text-gray-600 flex items-center">
+              <Link href="/" className="hover:underline text-teal-600">
                 Home
               </Link>
-              <span className="mx-2 text-white">></span>
-              <span className="text-white">Training and Coaching</span>
+              <span className="mx-2">{'>'}</span>
+              <span>Training & Coaching</span>
             </div>
           </div>
+        </div>
+
+        {/* Right: Hero Image */}
+        <div className="relative w-full h-full">
+          <Image
+            src={heroImage}
+            alt="Training Banner"
+            fill
+            className="object-cover object-center"
+            priority
+          />
         </div>
       </section>
 
       {/* Content Section */}
-      <section className="py-12 px-4 md:px-8 lg:px-16">
+      <main className="py-12 px-4 md:px-8 lg:px-16">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
@@ -49,7 +54,7 @@ const TrainingPage = () => {
                 Education is a core of any organization/individual for long term growth. Velveer programs are designed based on practical experience and handled by highly experienced professionals with practical experience. We can design & deliver special coaching & training programmes for the organisations based on any specific requirement.
               </p>
               <h2 className="text-2xl font-semibold mb-2 text-cyan-500">Training Programs:</h2>
-              <ul className="list-disc list-inside text-gray-700">
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li>Technologies</li>
                 <li>Information Security Management Systems</li>
                 <li>ISO Standards (ISO27001, ISO22301, ISO26262, ISO21434, and other standards and frameworks)</li>
@@ -68,17 +73,17 @@ const TrainingPage = () => {
             </div>
             <div>
               <Image
-                src="https://res.cloudinary.com/daggx9p24/image/upload/v1753871544/17647_us5hzd.jpg" // Replace with your actual image path
-                alt="Training and Coaching"
-                width={500} // Adjust as needed
-                height={400} // Adjust as needed
-                className="rounded-lg shadow-md object-cover" // Added object-cover
-                style={{ width: '100%', height: 'auto' }} // Make image responsive
+                src="https://res.cloudinary.com/daggx9p24/image/upload/v1753871544/17647_us5hzd.jpg"
+                alt="Training and Coaching session"
+                width={500}
+                height={400}
+                className="rounded-lg shadow-md object-cover"
+                style={{ width: '100%', height: 'auto' }}
               />
             </div>
           </div>
         </div>
-      </section>
+      </main>
 
       <Footer />
     </>

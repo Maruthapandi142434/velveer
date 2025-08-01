@@ -1,63 +1,40 @@
-// components/Header.tsx
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from 'react';
-import { usePathname } from 'next/navigation'; // Import usePathname
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
-  const [isHovered, setIsHovered] = useState(false);
-  const dropdownRef = useRef(null);
-  const pathname = usePathname(); // Get the current path
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      // You can add functionality related to outside clicks here if needed
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10); // add shadow after scrolling
     };
-  }, [dropdownRef]);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true)
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/">
-              <Image src="/images/logo.png" alt="Simon and Sons" width={120} height={40} className="h-10 w-auto" />
-            </Link>
-          </div>
-          <nav className="hidden md:flex space-x-8 items-center">
-            <AnimatedLink href="/" className={`font-medium ${pathname === '/' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
-              Home
-            </AnimatedLink>
-            <AnimatedLink href="/about" className={`font-medium ${pathname === '/about' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
-              About
-            </AnimatedLink>
-            <AnimatedLink href="/our-people" className={`font-medium ${pathname === '/our-people' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
-              Our Team
-            </AnimatedLink>
-            <AnimatedLink href="/services" className={`font-medium ${pathname === '/services' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
-              Our Services
-            </AnimatedLink>
-            <AnimatedLink href="/training" className={`font-medium ${pathname === '/training' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
-              Training
-            </AnimatedLink>
-            <AnimatedLink href="/contact" className={`font-medium ${pathname === '/contact' ? 'text-cyan-500' : 'text-gray-600 hover:text-cyan-500'}`}>
-              Contact
-            </AnimatedLink>
+    <header className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? 'shadow-md' : ''}`}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link href="/">
+            <Image src="/images/logo.png" alt="Simon and Sons" width={150} height={50} className="h-12 w-auto" />
+          </Link>
+
+          {/* Nav Menu */}
+          <nav className="hidden md:flex space-x-20 items-center text-[14px] font-medium">
+            <AnimatedLink href="/" active={pathname === '/'}>HOME</AnimatedLink>
+            <AnimatedLink href="/about" active={pathname === '/about'}>ABOUT</AnimatedLink>
+            <AnimatedLink href="/our-people" active={pathname === '/our-people'}>OUR TEAM</AnimatedLink>
+            <AnimatedLink href="/services" active={pathname === '/services'}>OUR SERVICES</AnimatedLink>
+            <AnimatedLink href="/training" active={pathname === '/training'}>TRAINING</AnimatedLink>
+            <AnimatedLink href="/contact" active={pathname === '/contact'}>CONTACT</AnimatedLink>
           </nav>
         </div>
       </div>
@@ -68,27 +45,25 @@ export default function Header() {
 interface AnimatedLinkProps {
   href: string;
   children: React.ReactNode;
-  className?: string;
+  active?: boolean;
 }
 
-const AnimatedLink: React.FC<AnimatedLinkProps> = ({ href, children, className }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const pathname = usePathname();
-  const isActive = pathname === href;
+const AnimatedLink: React.FC<AnimatedLinkProps> = ({ href, children, active }) => {
+  const [hovered, setHovered] = useState(false);
 
   return (
     <Link
       href={href}
-      className={`${className} relative overflow-hidden group ${isActive ? 'text-cyan-500' : ''}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className={`relative group text-gray-500 hover:text-cyan-600 ${active ? 'text-cyan-600' : ''}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       {children}
       <span
-        className={`absolute bottom-0 left-0 w-full h-0.5 bg-cyan-500 transform scale-x-0 origin-left transition-transform duration-300 ease-in-out ${
-          isHovered || isActive ? 'scale-x-100' : 'scale-x-0'
-        }`}
-      ></span>
+        className={`absolute bottom-0 left-0 h-0.5 w-full bg-cyan-600 transform transition-transform duration-300 ease-in-out ${
+          hovered || active ? 'scale-x-100' : 'scale-x-0'
+        } origin-left`}
+      />
     </Link>
   );
 };
