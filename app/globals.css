@@ -88,3 +88,10 @@
     @apply bg-background text-foreground;
   }
 }
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #4f46e5, #6366f1); /* Replace with your brand gradient */
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Adjust based on your fixed header height */
+}
