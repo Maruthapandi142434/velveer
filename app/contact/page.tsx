@@ -1,6 +1,7 @@
+// app/contact/page.js
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -9,14 +10,65 @@ import Footer from "@/components/Footer";
 const ContactPage = () => {
   const headerImage =
     "https://res.cloudinary.com/do5h58llu/image/upload/v1753940160/laughing-woman-talking-texting-phone-isolated-white-background_giiqkr.jpg";
-
   const sideImage =
-    "https://res.cloudinary.com/daggx9p24/image/upload/v1753870514/2150041860_t9mdh0.jpg"; // Adjust or replace
+    "https://res.cloudinary.com/daggx9p24/image/upload/v1753870514/2150041860_t9mdh0.jpg";
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+    requirement: "",
+    subject: "",
+    message: "",
+  });
+
+  const [formStatus, setFormStatus] = useState({
+    message: null,
+    error: false,
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setFormStatus({ message: data.message, error: false });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          city: "",
+          requirement: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setFormStatus({ message: data.message, error: true });
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setFormStatus({ message: "An unexpected error occurred", error: true });
+    }
+  };
 
   return (
     <>
       <Header />
-
       {/* Split Hero Section */}
       <section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px]">
         {/* Left: Title and Breadcrumb */}
@@ -35,7 +87,6 @@ const ContactPage = () => {
             </div>
           </div>
         </div>
-
         {/* Right: Image */}
         <div className="relative w-full h-full">
           <Image
@@ -54,7 +105,16 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Contact Form */}
             <div>
-              <form className="space-y-4">
+              {formStatus.message && (
+                <div
+                  className={`mb-4 p-3 rounded ${
+                    formStatus.error ? "bg-red-100 text-red-800" : "bg-green-100 text-green-800"
+                  }`}
+                >
+                  {formStatus.message}
+                </div>
+              )}
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
                     Your Name
@@ -64,6 +124,9 @@ const ContactPage = () => {
                     id="name"
                     placeholder="Your name"
                     className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required // Added required attribute
                   />
                 </div>
                 <div>
@@ -75,6 +138,9 @@ const ContactPage = () => {
                     id="email"
                     placeholder="Your email"
                     className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required // Added required attribute
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -87,6 +153,8 @@ const ContactPage = () => {
                       id="phone"
                       placeholder="Phone"
                       className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+                      value={formData.phone}
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
@@ -98,6 +166,8 @@ const ContactPage = () => {
                       id="city"
                       placeholder="City"
                       className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+                      value={formData.city}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -110,6 +180,8 @@ const ContactPage = () => {
                     id="requirement"
                     placeholder="Requirement / Course"
                     className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+                    value={formData.requirement}
+                    onChange={handleChange}
                   />
                 </div>
                 <div>
@@ -121,6 +193,9 @@ const ContactPage = () => {
                     id="subject"
                     placeholder="Subject"
                     className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required // Added required attribute
                   />
                 </div>
                 <div>
@@ -132,6 +207,8 @@ const ContactPage = () => {
                     rows={4}
                     placeholder="Your message"
                     className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+                    value={formData.message}
+                    onChange={handleChange}
                   ></textarea>
                 </div>
 
