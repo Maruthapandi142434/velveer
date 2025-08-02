@@ -31,10 +31,11 @@ export default function Header() {
           <nav className="hidden md:flex space-x-20 items-center text-[14px] font-medium">
             <AnimatedLink href="/" active={pathname === '/'}>HOME</AnimatedLink>
             <AnimatedLink href="/about" active={pathname === '/about'}>ABOUT</AnimatedLink>
-            <AnimatedLink href="/our-people" active={pathname === '/our-people'}>OUR TEAM</AnimatedLink>
+            
             <AnimatedLink href="/services" active={pathname === '/services'}>OUR SERVICES</AnimatedLink>
             <AnimatedLink href="/training" active={pathname === '/training'}>TRAINING</AnimatedLink>
             <AnimatedLink href="/contact" active={pathname === '/contact'}>CONTACT</AnimatedLink>
+            <AnimatedLink href="/expert-resource-consulting" active={pathname === '/expert-resource-consulting'}>Expert Resource Consulting</AnimatedLink>
           </nav>
         </div>
       </div>
