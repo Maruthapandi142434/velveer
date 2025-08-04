@@ -10,7 +10,7 @@ const AboutData = {
   description:
     " Velveer is Business Management and Consulting Company based in India offering specialized cybersecurity services to organizations to protect digital assets, ensure regulatory compliance, and build cyber resilience in a fast-evolving threat landscape. Together with our niche domain experts and strategic alliance partners, we undertake consulting assignments as a collaborative process, enhancing value and trust by delivering cost effective and pragmatic solutions.",
   image:
-    "https://res.cloudinary.com/daggx9p24/image/upload/v1754111403/upset-disappointed-businesswoman-entering-office-meeting-room-late-night_gwhsub.jpg", // This will be the right side image
+    "https://res.cloudinary.com/daggx9p24/image/upload/v1754307073/742_j0hcqv.jpg", // This will be the right side image
 };
 
 const AboutPage = () => {
@@ -24,10 +24,10 @@ const AboutPage = () => {
   {/* Right Side - Image (Moved to the top for mobile) */}
   <div className="relative w-full h-64 md:h-full order-first md:order-last">
     <Image
-      src="https://res.cloudinary.com/daggx9p24/image/upload/v1754304908/121264_teimwm.jpg" // Replace with your hand image if needed
+      src="https://res.cloudinary.com/daggx9p24/image/upload/v1754306076/about-section_wubkes.jpg" // Replace with your hand image if needed
       alt="Team Diversity"
       fill
-      className="object-cover object-center"
+      className="object-cover object-bottom"
       priority
     />
   </div>

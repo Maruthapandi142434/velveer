@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 
 const ExpertPage = () => {
   const headerImage =
-    'https://res.cloudinary.com/do5h58llu/image/upload/v1753940160/laughing-woman-talking-texting-phone-isolated-white-background_giiqkr.jpg';
+    'https://res.cloudinary.com/daggx9p24/image/upload/v1754307284/196_paard9.jpg';
   const heroImage =
     'https://res.cloudinary.com/dabyqx1mz/image/upload/v1746890934/samples/cup-on-a-table.jpg';
 
