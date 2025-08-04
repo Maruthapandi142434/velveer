@@ -37,7 +37,7 @@ const OurCoreServices: React.FC = () => {
             icon: Database,
             title: "IT Governance and Strategy",
             description: "Almost every aspect of a business relies on IT in one way or another...",
-            href: "/services",
+            href: "/services#it-governance",
             color: "text-blue-600",
         },
         {

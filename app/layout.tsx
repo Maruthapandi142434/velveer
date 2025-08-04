@@ -5,8 +5,8 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'velveer',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  description: 'Velveer is managed by a team of highly qualified professionals having years of experience gained from India and overseas business',
+  generator: 'velveer.com',
 }
 
 export default function RootLayout({
