@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const TrainingPage = () => {
   const heroImage =
-    'https://res.cloudinary.com/do5h58llu/image/upload/v1753940295/meeting-mature-office-showing-presenter_cfpt40.jpg';
+    'https://res.cloudinary.com/daggx9p24/image/upload/v1754311429/2149300715_fostwo.jpg';
 
   return (
     <>
@@ -47,9 +47,9 @@ const TrainingPage = () => {
 </section>
 
       {/* Content Section */}
-     <main className="py-12 px-4 md:px-8 lg:px-16">
+      <main className="py-12 px-4 md:px-8 lg:px-16">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"> {/* Added items-start for vertical alignment */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <div>
             <p className="mb-4 text-gray-700 leading-relaxed">
               Education is a core of any organization/individual for long term growth. Velveer programs are designed based on practical experience and handled by highly experienced professionals with practical experience. We can design & deliver special coaching & training programmes for the organisations based on any specific requirement.
@@ -73,14 +73,14 @@ const TrainingPage = () => {
               <li>Other on-demand programs.</li>
             </ul>
           </div>
-          <div>
+          <div className="flex justify-center items-end  lg:mt-20"> {/* Add this div to center the image */}
             <Image
-              src="https://res.cloudinary.com/daggx9p24/image/upload/v1753871544/17647_us5hzd.jpg"
+              src="https://res.cloudinary.com/daggx9p24/image/upload/v1754311167/692_xxjvcs.jpg"
               alt="Training and Coaching session"
               width={500}
               height={400}
-              className="rounded-lg shadow-md object-cover w-full h-auto" // Added w-full and h-auto
-              style={{ maxHeight: '400px', objectFit: 'cover' }} // Optional: Added max-height and object-fit for better control
+              className="rounded-lg shadow-md object-cover w-full h-auto"
+              style={{ maxHeight: '400px', objectFit: 'cover' }}
             />
           </div>
         </div>

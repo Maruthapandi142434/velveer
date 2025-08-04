@@ -22,7 +22,7 @@ const ServicesPage = () => {
         "BSC (Balanced Score Card)",
         "NIST",
       ],
-      image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754111403/upset-disappointed-businesswoman-entering-office-meeting-room-late-night_gwhsub.jpg",
+      image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754304019/2150041849_sn2rrh.jpg",
       imagePosition: "left",
     },
     {
@@ -61,7 +61,7 @@ const ServicesPage = () => {
         "IATF 16949 - International QMS for the automotive industry",
         "AutoSpice (Automotive SPICE)",
       ],
-      image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754112490/11669879_20945952_zfqtke.svg",
+      image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754311009/2150041852_1_jjywks.jpg",
       imagePosition: "left",
     },
     {
@@ -85,7 +85,7 @@ const ServicesPage = () => {
         "Cloud Security Testing",
         "IoT Security Audits",
       ],
-      image: "https://simonnsons.com/images/other-services.png",
+      image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754310688/2149101181_fpmduo.jpg",
       imagePosition: "right",
     },
     {
@@ -100,7 +100,7 @@ const ServicesPage = () => {
         "Implementation support including data analysis and deployment",
         "Training and knowledge transfer on AI tools and methodologies",
       ],
-      image: "https://simonnsons.com/images/design-and-detail-engineering.png",
+      image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754310739/2152006116_enqdct.jpg",
       imagePosition: "left",
     },
     {
@@ -119,7 +119,7 @@ const ServicesPage = () => {
         "Expert ERP sourcing",
         "Training",
       ],
-      image: "https://res.cloudinary.com/do5h58llu/image/upload/v1754050885/WPS_Photos_1_xsnm6q.jpg",
+      image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754310907/2149092255_hj589y.jpg",
       imagePosition: "right",
     },
   ];
