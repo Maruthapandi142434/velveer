@@ -20,12 +20,12 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: "/", label: "HOME" },
-    { href: "/about", label: "ABOUT" },
-    { href: "/services", label: "OUR SERVICES" },
-    { href: "/training", label: "TRAINING" },
-    { href: "/contact", label: "CONTACT" },
-    { href: "/expert-resource-consulting", label: "EXPERT RESOURCE CONSULTING" },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Our Services" },
+    { href: "/training", label: "Training" },
+    { href: "/expert-resource-consulting", label: "Expert Resource Consulting" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
