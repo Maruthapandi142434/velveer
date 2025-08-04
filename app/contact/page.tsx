@@ -11,7 +11,7 @@ const ContactPage = () => {
   const headerImage =
     "https://res.cloudinary.com/do5h58llu/image/upload/v1753940160/laughing-woman-talking-texting-phone-isolated-white-background_giiqkr.jpg";
   const sideImage =
-    "https://res.cloudinary.com/daggx9p24/image/upload/v1753870514/2150041860_t9mdh0.jpg";
+    "https://res.cloudinary.com/daggx9p24/image/upload/v1754309983/167132_txv2of.jpg";
 
   const [formData, setFormData] = useState({
     name: "",
