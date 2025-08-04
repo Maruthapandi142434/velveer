@@ -64,7 +64,7 @@ const heroSlides: HeroSlide[] = [
   },
 ];
 
-const animationPresets = ["slideIn", "fadeIn", "zoomIn", "fadeSlideIn"];
+const animationPresets = ["fadeIn", "fadeIn", "zoomIn", "fadeIn"];
 
 interface AnimatedHeroSlideProps {
   slide: HeroSlide;
@@ -142,10 +142,10 @@ function AnimatedHeroSlide({ slide, animationPreset }: AnimatedHeroSlideProps) {
   const currentTextVariants = textVariants[animationPreset];
 
   return (
-    <section className="w-full h-[calc(100vh-120px)] flex flex-col md:flex-row">
+    <section className="w-full h-[calc(100vh-120px)] flex md:flex-row flex-col"> {/* Modified flex direction */}
       {/* Left side with image and static title */}
       <motion.div
-        className="w-full md:w-[calc(50%+110px)] h-64 md:h-full relative flex items-center justify-center"
+        className="w-full md:w-[calc(50%+110px)] h-64 md:h-full relative flex items-center justify-center order-first md:order-none" /* added order-first and md:order-none */
         variants={imageVariants}
         initial="hidden"
         animate="visible"
@@ -166,7 +166,7 @@ function AnimatedHeroSlide({ slide, animationPreset }: AnimatedHeroSlideProps) {
 
       {/* Right side with only the service title */}
       <motion.div
-        className={`w-full md:w-[calc(50%-110px)] text-white flex flex-col justify-center items-center p-8 ${slide.bgColor}`}
+        className={`w-full md:w-[calc(50%-110px)] text-white flex flex-col justify-center items-center p-8 ${slide.bgColor} order-last md:order-none`} /* Added order-last and md:order-none */
         variants={currentTextVariants}
         initial="hidden"
         animate="visible"
@@ -239,11 +239,11 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Indicator Dots */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+      <div className="absolute lg:bottom-[-30px] bottom-28 left-0 right-0 flex justify-center space-x-2">
         {heroSlides.map((_, index) => (
           <button
             key={index}
-            className={`h-3 w-3 rounded-full ${currentSlide === index ? "bg-white" : "bg-gray-300"}`}
+            className={`h-3 w-3 rounded-full ${currentSlide === index ? "bg-cyan-400" : "bg-gray-300"}`}
             onClick={() => goToSlide(index)}
           />
         ))}

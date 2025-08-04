@@ -96,11 +96,11 @@ const OurCoreServices: React.FC = () => {
                         return (
                             <Card
                                 key={service.title}
-                                className="group hover:shadow-strong transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-soft"
+                                className="group hover:shadow-strong transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-slate-400"
                                 style={{ animationDelay: `${index * 100}ms` }}
                             >
                                 <CardHeader className="text-center">
-                                    <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <div className="w-16 h-16 mx-auto mb-4 bg-cyan-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                         <IconComponent className="w-8 h-8 text-white" />
                                     </div>
                                     <CardTitle className="text-xl font-semibold text-foreground mb-2">
@@ -128,8 +128,8 @@ const OurCoreServices: React.FC = () => {
                     })}
                 </div>
 
-                <div className="text-center animate-fade-in-up">
-                    <Button variant="hero" size="lg" asChild>
+                <div className="text-center animate-fade-in-up ">
+                    <Button variant="hero" size="lg" asChild className="bg-cyan-500 text-white">
                         <Link href="/services">
                             Explore All Services
                             <ArrowRight className="w-5 h-5 ml-2" />

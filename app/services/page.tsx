@@ -154,35 +154,40 @@ const ServicesPage = () => {
   return (
     <>
       <Header />
-      <section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px]">
-        {/* Left Side - Title & Breadcrumb */}
-        <div className="relative flex items-center justify-center bg-gray-100">
-          <div className="p-6 md:p-8 lg:p-12 text-left max-w-xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4">
-              Our <span className="text-teal-600">Services</span>
-            </h1>
-            <div className="h-0.5 w-12 bg-teal-600 mb-2 md:mb-4"></div>
-            <div className="text-sm text-gray-600 flex items-center">
-              {/* <Link href="/" className="hover:underline text-teal-600">
-                       Home
-                     </Link>
-                     <span className="mx-1 md:mx-2">{">"}</span>
-                     <span>About Us</span> */}
-            </div>
-          </div>
-        </div>
+<section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px] relative">
 
-        {/* Right Side - Image */}
-        <div className="relative w-full h-full">
-          <Image
-            src="https://res.cloudinary.com/daggx9p24/image/upload/v1753871544/17647_us5hzd.jpg" // Replace with your hand image if needed
-            alt="Team Diversity"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        </div>
-      </section>
+  {/* Right Side - Image (Moved to the top for mobile) */}
+  <div className="relative w-full h-64 md:h-full order-first md:order-last">
+    <Image
+      src="https://res.cloudinary.com/daggx9p24/image/upload/v1753871544/17647_us5hzd.jpg" // Replace with your hand image if needed
+      alt="Team Diversity"
+      fill
+      className="object-cover object-center"
+      priority
+    />
+  </div>
+
+  {/* Left Side - Title & Breadcrumb with Background Image */}
+  <div className="relative flex items-center justify-center bg-gray-100 overflow-hidden">
+
+    {/* Desktop-Only Background Image */}
+    <div className="absolute inset-0 bg-cover bg-center hidden md:block"
+         style={{ backgroundImage: `url(https://res.cloudinary.com/daggx9p24/image/upload/v1746535885/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-70858_a4q9sq.avif)` }}>
+    </div>
+
+    {/* Content (Title & Breadcrumb) - Needs z-index to be on top */}
+    <div className="p-6 md:p-8 lg:p-12 text-left max-w-xl relative z-10">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4">
+        Our <span className="text-teal-600">Services</span>
+      </h1>
+      <div className="h-0.5 w-12 bg-teal-600 mb-2 md:mb-4"></div>
+      <div className="text-sm text-gray-600 flex items-center">
+
+      </div>
+    </div>
+
+  </div>
+</section>
       <section className="py-20 px-4 md:px-8 lg:px-20 bg-white">
 
 
