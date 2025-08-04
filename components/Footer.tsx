@@ -10,12 +10,12 @@ export default function Footer() {
   return (
     <footer className="bg-[#0095a8] text-white">
       {/* Top Section */}
-      <div className="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"> {/* Responsive gap */}
 
         {/* Our Team */}
         <div>
-          <h3 className="text-lg font-bold mb-2">Our Team</h3>
-          <p className="text-sm font-semibold mb-2">Experience our Expertise</p>
+          <h3 className="text-lg font-semibold mb-2">Our Team</h3>
+          <p className="text-sm font-medium mb-2">Experience our Expertise</p>
           <p className="text-sm text-white mb-2">
             To feel the experience, get in touch with us at
           </p>
@@ -33,7 +33,7 @@ export default function Footer() {
 
         {/* Service Offering */}
         <div>
-          <h3 className="text-lg font-bold mb-4">Service Offering</h3>
+          <h3 className="text-lg font-semibold mb-4">Service Offering</h3>
           <ul className="text-sm space-y-2 text-white">
             {[
               { label: 'IT Governance and Strategy', id: 'it-governance' },
@@ -59,7 +59,7 @@ export default function Footer() {
 
         {/* Contents */}
         <div>
-          <h3 className="text-lg font-bold mb-4">Contents</h3>
+          <h3 className="text-lg font-semibold mb-4">Contents</h3>
           <ul className="text-sm space-y-2 text-white">
             <li>
               <Link href="/" className="hover:underline">HOME</Link>
@@ -84,22 +84,26 @@ export default function Footer() {
 
         {/* Address */}
         <div>
-          <h3 className="text-lg font-bold mb-4">Address</h3>
-          <p className="text-sm mb-1">Velveer Corporate Solutions Private Limited,</p>
-          <p className="text-sm mb-1">3rd Floor , 14 Periyar Road</p>
-          <p className="text-sm mb-1">T.Nagar, Chennai</p>
-          <p className="text-sm mb-1">Tamilnadu - 600 017</p>
-          <p className="text-sm mb-1">India</p>
-          <p className="text-sm mb-1">+91 44 4380 6826</p>
-          <p className="text-sm mb-3">info@simonnsons.com</p>
+          <h3 className="text-lg font-semibold mb-4">Address</h3>
+          <div className="mb-4"> {/* Container for Velveer Address */}
+             <h4 className="text-base font-medium mb-2">Chennai</h4>{/* Slightly smaller subheading */}
+            <p className="text-sm mb-1">Velveer Corporate Solutions Private Limited,</p>
+            <p className="text-sm mb-1">3rd Floor , 14 Periyar Road</p>
+            <p className="text-sm mb-1">T.Nagar, Chennai ,Tamilnadu - 600 017</p>
+            {/* <p className="text-sm mb-1">+91 44 4380 6826</p>
+            <p className="text-sm">info@simonnsons.com</p>  */}
+          </div>
 
-          <p className="text-sm mb-1">5M Global LLC,</p>
-          <p className="text-sm mb-1">Dubai,</p>
-          <p className="text-sm mb-1">United Arab Emirates</p>
+          <div> {/* Container for 5M Global LLC Address */}
+             <h4 className="text-base font-medium mb-2">Dubai</h4> {/* Slightly smaller subheading */}
+            <p className="text-sm mb-1">5M Global LLC,</p>
+            <p className="text-sm mb-1">Dubai,</p>
+            <p className="text-sm mb-1">United Arab Emirates</p>
+          </div>
 
 
           {/* Social Icons */}
-          <div className="flex gap-4 mt-2">
+          <div className="flex gap-4 mt-4">  {/* Adjusted marginTop for more space */}
             <a href="#" className="text-white hover:text-gray-300">
               <FaFacebookF />
             </a>
@@ -116,7 +120,7 @@ export default function Footer() {
       {/* Bottom Copyright */}
       <div className="bg-black py-4">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">Copyright © 2024. All rights reserved.</p>
+          <p className="text-gray-400 text-sm">Copyright © 2025. All rights reserved.</p>
           <div className="space-x-4 text-sm text-gray-400 mt-2 md:mt-0">
             <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
             <Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link>

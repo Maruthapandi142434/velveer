@@ -70,34 +70,36 @@ const ContactPage = () => {
     <>
       <Header />
       {/* Split Hero Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px]">
-        {/* Left: Title and Breadcrumb */}
-        <div className="flex items-center justify-center bg-gray-100">
-          <div className="p-8 md:p-12 lg:p-16 text-left max-w-xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Contact <span className="text-teal-600">Us</span>
-            </h1>
-            <div className="h-0.5 w-12 bg-teal-600 mb-4"></div>
-            <div className="text-sm text-gray-600 flex items-center">
-              <Link href="/" className="hover:underline text-teal-600">
-                Home
-              </Link>
-              <span className="mx-2">{">"}</span>
-              <span>Contact Us</span>
-            </div>
-          </div>
-        </div>
-        {/* Right: Image */}
-        <div className="relative w-full h-full">
-          <Image
-            src={headerImage}
-            alt="Contact Banner"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        </div>
-      </section>
+<section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px] relative">
+  {/* Left: Title and Breadcrumb with Background Image */}
+  <div className="flex items-center justify-center bg-gray-100 relative overflow-hidden">
+
+    {/* Desktop-Only Background Image */}
+    <div className="absolute inset-0 bg-cover bg-center hidden md:block"
+         style={{ backgroundImage: `url(https://res.cloudinary.com/daggx9p24/image/upload/v1746535885/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-70858_a4q9sq.avif)` }}> {/* Correctly using the headerImage variable */}
+    </div>
+
+    {/* Content (Title & Breadcrumb) - Needs z-index to be on top */}
+    <div className="p-6 md:p-8 lg:p-12 text-left max-w-xl relative z-10">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+        Contact <span className="text-teal-600">Us</span>
+      </h1>
+      <div className="h-0.5 w-12 bg-teal-600 mb-4"></div>
+
+    </div>
+  </div>
+
+  {/* Right: Image (Moved to top for mobile) */}
+  <div className="relative w-full h-64 md:h-full order-first md:order-last">
+    <Image
+      src={headerImage} // Use the headerImage variable here too
+      alt="Contact Banner"
+      fill
+      className="object-cover object-center"
+      priority
+    />
+  </div>
+</section>
 
       {/* Contact Form Section */}
       <section className="py-12 px-4 md:px-8 lg:px-16">

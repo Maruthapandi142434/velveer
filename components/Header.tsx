@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
     <header
-      className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${
+      className={`bg-white sticky top-0 z-50 w-full transition-shadow duration-300 ${
         scrolled ? "shadow-md" : ""
       }`}
     >
