@@ -25,7 +25,7 @@ export default function Header() {
     { href: "/services", label: "OUR SERVICES" },
     { href: "/training", label: "TRAINING" },
     { href: "/contact", label: "CONTACT" },
-    { href: "/expert-resource-consulting", label: "Expert Resource Consulting" },
+    { href: "/expert-resource-consulting", label: "EXPERT RESOURCE CONSULTING" },
   ];
 
   return (

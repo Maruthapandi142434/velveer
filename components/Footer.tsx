@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="bg-[#0095a8] text-white">
       {/* Top Section */}
       <div className="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        
+
         {/* Our Team */}
         <div>
           <h3 className="text-lg font-bold mb-2">Our Team</h3>
@@ -36,19 +36,26 @@ export default function Footer() {
           <h3 className="text-lg font-bold mb-4">Service Offering</h3>
           <ul className="text-sm space-y-2 text-white">
             {[
-              'IT Governance and Strategy',
-              'GRC- Governance, Risk and Compliance',
-              'Automotive Security',
-              'Cyber Security Assessment',
-              'AI Consulting',
-              'ERP Advisory',
-              'Expert Resource Consulting',
-              'Training and Coaching',
-            ].map((item, idx) => (
-              <li key={idx} className="hover:underline">{item}</li>
+              { label: 'IT Governance and Strategy', id: 'it-governance' },
+              { label: 'GRC- Governance, Risk and Compliance', id: 'grc' },
+              { label: 'Automotive Security', id: 'automotive-cybersecurity' },
+              { label: 'Cyber Security Assessment', id: 'cybersecurity-assessment' },
+              { label: 'AI Consulting', id: 'ai-transformation' },
+              { label: 'ERP Advisory', id: 'erp' },
+
+            ].map(({ label, id }, idx) => (
+              <li key={idx}>
+                <Link
+                  href={`/services#${id}`}
+                  className="hover:underline block"
+                >
+                  {label}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
+
 
         {/* Contents */}
         <div>
@@ -85,6 +92,11 @@ export default function Footer() {
           <p className="text-sm mb-1">India</p>
           <p className="text-sm mb-1">+91 44 4380 6826</p>
           <p className="text-sm mb-3">info@simonnsons.com</p>
+
+          <p className="text-sm mb-1">5M Global LLC,</p>
+          <p className="text-sm mb-1">Dubai,</p>
+          <p className="text-sm mb-1">United Arab Emirates</p>
+
 
           {/* Social Icons */}
           <div className="flex gap-4 mt-2">
