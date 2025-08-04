@@ -159,8 +159,9 @@ function AnimatedHeroSlide({ slide, animationPreset }: AnimatedHeroSlideProps) {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-center px-4 text-xl md:text-2xl font-semibold z-10">
-          Stay ahead of cyber threats, <br />legal complexities, and operational  <br />challenges with our expert services
+        {/* Add a subtle background to the text for better readability */}
+        <div className="absolute inset-0 flex items-center justify-center bg-black/40 text-white text-center px-4 text-xl md:text-2xl font-semibold z-10">
+          <span className="bg-black/50 p-2 rounded">Stay ahead of cyber threats, <br />legal complexities, and operational  <br />challenges with our expert services</span>
         </div>
       </motion.div>
 
@@ -229,7 +230,7 @@ const HeroSection: React.FC = () => {
       </AnimatePresence>
 
       {/* Navigation Buttons */}
-      <div className="absolute top-1/2 transform -translate-y-1/2 w-full flex justify-between items-center px-4">
+      <div className="absolute top-1/2 transform  w-full flex justify-between items-center px-4">
         <Button variant="ghost" size="icon" onClick={prevSlide}>
           <ChevronLeft className="h-6 w-6" />
         </Button>
