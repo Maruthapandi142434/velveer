@@ -24,7 +24,7 @@ const AboutPage = () => {
   {/* Right Side - Image (Moved to the top for mobile) */}
   <div className="relative w-full h-64 md:h-full order-first md:order-last">
     <Image
-      src="https://res.cloudinary.com/daggx9p24/image/upload/v1753871544/17647_us5hzd.jpg" // Replace with your hand image if needed
+      src="https://res.cloudinary.com/daggx9p24/image/upload/v1754304908/121264_teimwm.jpg" // Replace with your hand image if needed
       alt="Team Diversity"
       fill
       className="object-cover object-center"

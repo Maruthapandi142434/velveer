@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,136 +16,96 @@ interface HeroSlide {
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
-    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753870672/13454919_5234330_nzmpme.jpg",
+    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754304183/2150377138_lpqly3.jpg",
     serviceTitle: "IT Governance and Strategy",
     bgColor: "bg-gradient-to-r from-orange-500/90 to-orange-600/90",
   },
   {
     id: 2,
-    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753870396/11668726_20945746_izvfff.jpg",
+    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754301989/118032_iyf9s6.jpg",
     serviceTitle: "GRC- Governance, Risk and Compliance",
     bgColor: "bg-gradient-to-r from-purple-600/90 to-purple-700/90",
   },
   {
     id: 3,
-    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753870594/25225479_7016016_kcxvba.jpg",
+    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754304494/105390_reqpcr.jpg",
     serviceTitle: "Automotive Security",
     bgColor: "bg-gradient-to-r from-yellow-500/90 to-yellow-600/90",
   },
   {
     id: 4,
-    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753870514/2150041860_t9mdh0.jpg",
+    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754304605/125636_jqdcxa.jpg",
     serviceTitle: "Cyber Security Assessment",
     bgColor: "bg-gradient-to-r from-orange-700/90 to-orange-800/90",
   },
   {
     id: 5,
-    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753871544/17647_us5hzd.jpg",
+    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754302203/2151908096_kupthy.jpg",
     serviceTitle: "AI Consulting",
     bgColor: "bg-gradient-to-r from-green-500/90 to-green-600/90",
   },
   {
     id: 6,
-    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753871544/17647_us5hzd.jpg",
+    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754302462/2150103578_frtc5r.jpg",
     serviceTitle: "ERP Advisory",
     bgColor: "bg-gradient-to-r from-blue-500/90 to-blue-600/90",
   },
   {
     id: 7,
-    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753871544/17647_us5hzd.jpg",
+    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754302801/18026_vhyvde.jpg",
     serviceTitle: "Expert Resource Consulting",
     bgColor: "bg-gradient-to-r from-indigo-500/90 to-indigo-600/90",
   },
   {
     id: 8,
-    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1753871544/17647_us5hzd.jpg",
+    image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754303086/16288_ntqmod.jpg",
     serviceTitle: "Training and Coaching",
     bgColor: "bg-gradient-to-r from-pink-500/90 to-pink-600/90",
   },
 ];
 
-const animationPresets = ["fadeIn", "fadeIn", "zoomIn", "fadeIn"];
+// Simplified Animation Presets (Focus on smooth transitions)
+const animationPresets = ["slideIn", "fadeIn"];
 
 interface AnimatedHeroSlideProps {
   slide: HeroSlide;
-  animationPreset: string;
 }
 
-function AnimatedHeroSlide({ slide, animationPreset }: AnimatedHeroSlideProps) {
+function AnimatedHeroSlide({ slide }: AnimatedHeroSlideProps) {
   const imageVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, x: -50 },  // Start off-screen left
     visible: {
       opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeInOut" },
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
     },
     exit: {
       opacity: 0,
-      y: -20,
-      transition: { duration: 0.5, ease: "easeInOut" },
+      x: 50, // Move off-screen right
+      transition: { duration: 0.6, ease: "easeIn" },
     },
   };
 
   const textVariants = {
-    slideIn: {
-      hidden: { opacity: 0, x: 40 },
-      visible: {
-        opacity: 1,
-        x: 0,
-        transition: { duration: 0.7, ease: "easeOut" },
-      },
-      exit: {
-        opacity: 0,
-        x: -40,
-        transition: { duration: 0.5, ease: "easeInOut" },
-      },
+    hidden: { opacity: 0, x: 50 }, // Start off-screen right
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
     },
-    fadeIn: {
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: { duration: 0.8, ease: "easeOut" },
-      },
-      exit: {
-        opacity: 0,
-        transition: { duration: 0.5, ease: "easeOut" },
-      },
-    },
-    zoomIn: {
-      hidden: { opacity: 0, scale: 0.95 },
-      visible: {
-        opacity: 1,
-        scale: 1,
-        transition: { duration: 0.6, ease: "easeOut" },
-      },
-      exit: {
-        opacity: 0,
-        scale: 0.95,
-        transition: { duration: 0.4, ease: "easeIn" },
-      },
-    },
-    fadeSlideIn: {
-      hidden: { opacity: 0, y: 20 },
-      visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.8, ease: "easeOut" },
-      },
-      exit: {
-        opacity: 0,
-        y: -20,
-        transition: { duration: 0.5, ease: "easeInOut" },
-      },
+    exit: {
+      opacity: 0,
+      x: -50, // Move off-screen left
+      transition: { duration: 0.6, ease: "easeIn" },
     },
   };
 
-  const currentTextVariants = textVariants[animationPreset];
 
   return (
-    <section className="w-full h-[calc(100vh-120px)] flex md:flex-row flex-col"> {/* Modified flex direction */}
+    <section className="w-full h-[calc(100vh-120px)] flex md:flex-row flex-col overflow-hidden">
       {/* Left side with image and static title */}
       <motion.div
-        className="w-full md:w-[calc(50%+110px)] h-64 md:h-full relative flex items-center justify-center order-first md:order-none" /* added order-first and md:order-none */
+        className="w-full md:w-[calc(50%+110px)] h-64 md:h-full relative flex items-center justify-center order-first md:order-none"
         variants={imageVariants}
         initial="hidden"
         animate="visible"
@@ -161,14 +121,14 @@ function AnimatedHeroSlide({ slide, animationPreset }: AnimatedHeroSlideProps) {
         />
         {/* Add a subtle background to the text for better readability */}
         <div className="absolute inset-0 flex items-center justify-center bg-black/40 text-white text-center px-4 text-xl md:text-2xl font-semibold z-10">
-          <span className="bg-black/50 p-2 rounded">Stay ahead of cyber threats, <br />legal complexities, and operational  <br />challenges with our expert services</span>
+          <span className=" p-2 rounded">Stay ahead of cyber threats, <br />legal complexities, and operational  <br />challenges with our expert services</span>
         </div>
       </motion.div>
 
       {/* Right side with only the service title */}
       <motion.div
-        className={`w-full md:w-[calc(50%-110px)] text-white flex flex-col justify-center items-center p-8 ${slide.bgColor} order-last md:order-none`} /* Added order-last and md:order-none */
-        variants={currentTextVariants}
+        className={`w-full md:w-[calc(50%-110px)] text-white flex flex-col justify-center items-center p-8 ${slide.bgColor} order-last md:order-none`}
+        variants={textVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
@@ -185,38 +145,42 @@ function AnimatedHeroSlide({ slide, animationPreset }: AnimatedHeroSlideProps) {
 const HeroSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [animationPreset, setAnimationPreset] = useState("slideIn");
+
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  function resetTimeout() {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  }
+
 
   useEffect(() => {
     if (!isAutoPlaying) return;
-    const interval = setInterval(() => {
+
+    function handleNextSlide() {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-      setAnimationPreset(
-        animationPresets[Math.floor(Math.random() * animationPresets.length)]
-      );
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+    }
+
+    resetTimeout();
+    timeoutRef.current = setTimeout(() => handleNextSlide(), 5000);
+
+    return () => {
+      resetTimeout();
+    };
+  }, [currentSlide, isAutoPlaying]);
+
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    setAnimationPreset(
-      animationPresets[Math.floor(Math.random() * animationPresets.length)]
-    );
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-    setAnimationPreset(
-      animationPresets[Math.floor(Math.random() * animationPresets.length)]
-    );
   };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
-    setAnimationPreset(
-      animationPresets[Math.floor(Math.random() * animationPresets.length)]
-    );
   };
 
   return (
@@ -225,7 +189,6 @@ const HeroSection: React.FC = () => {
         <AnimatedHeroSlide
           key={currentSlide}
           slide={heroSlides[currentSlide]}
-          animationPreset={animationPreset}
         />
       </AnimatePresence>
 
