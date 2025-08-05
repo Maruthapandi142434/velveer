@@ -14,7 +14,7 @@ const ExpertPage = () => {
 
   return (
     <>
-      <Header />
+   
       {/* Hero Section */}
 <section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px] relative">
 
@@ -85,7 +85,7 @@ const ExpertPage = () => {
         </div>
       </main>
 
-      <Footer />
+
     </>
   );
 };

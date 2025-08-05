@@ -12,7 +12,7 @@ import OurCoreServices from "./OurCoreServices";
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+   
 
       {/* Hero Section */}
       <HeroSection />
@@ -47,7 +47,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <Footer />
+   
     </div>
   );
 }

@@ -153,7 +153,7 @@ const ServicesPage = () => {
   }, []);
   return (
     <>
-      <Header />
+   
 <section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px] relative">
 
   {/* Right Side - Image (Moved to the top for mobile) */}
@@ -253,7 +253,6 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 };

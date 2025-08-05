@@ -68,7 +68,7 @@ const ContactPage = () => {
 
   return (
     <>
-      <Header />
+
       {/* Split Hero Section */}
 <section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px] relative">
   {/* Left: Title and Breadcrumb with Background Image */}
@@ -236,7 +236,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      <Footer />
+  
     </>
   );
 };
