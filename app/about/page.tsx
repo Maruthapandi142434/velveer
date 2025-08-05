@@ -16,7 +16,7 @@ const AboutData = {
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+  
 
       {/* Split Header Section */}
 <section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px] relative">
@@ -108,7 +108,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

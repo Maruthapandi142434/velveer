@@ -120,11 +120,14 @@ export default function Footer() {
       {/* Bottom Copyright */}
       <div className="bg-black py-4">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">Copyright © 2025. All rights reserved.</p>
+          <p className="text-gray-400 text-sm">
+  Copyright © {new Date().getFullYear()}. All rights reserved.
+</p>
+
           <div className="space-x-4 text-sm text-gray-400 mt-2 md:mt-0">
             <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link>
-            <Link href="/cookie-policy" className="hover:text-white">Cookie Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-white">Terms and condition</Link>
+            {/* <Link href="/cookie-policy" className="hover:text-white">Cookie Policy</Link> */}
           </div>
         </div>
       </div>
