@@ -12,24 +12,29 @@ export default function Footer() {
       {/* Top Section */}
       <div className="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"> {/* Responsive gap */}
 
-        {/* Our Team */}
-        <div>
-          <h3 className="text-lg font-semibold mb-2">Our Team</h3>
-          <p className="text-sm font-medium mb-2">Experience our Expertise</p>
-          <p className="text-sm text-white mb-2">
-            To feel the experience, get in touch with us at
-          </p>
-          <p className="text-sm flex items-center gap-2">
-            <Phone className="w-4 h-4 text-white" />
-            +91 44 4380 6826
-          </p>
-          <p className="text-sm flex items-center gap-2 mt-1">
-            <Mail className="w-4 h-4 text-white" />
-            <a href="mailto:info@simonnsons.com" className="hover:underline">
-              info@simonnsons.com
+       <div>
+ <h3 className="text-lg font-semibold mb-4">Address</h3>
+          <div className="mb-4"> {/* Container for Velveer Address */}
+             <h4 className="text-base font-medium mb-2">Chennai</h4>{/* Slightly smaller subheading */}
+            <p className="text-sm mb-1">Velveer Corporate Solutions Private Limited,</p>
+            <p className="text-sm mb-1">3rd Floor , 14 Periyar Road</p>
+            <p className="text-sm mb-1">T.Nagar, Chennai ,Tamilnadu - 600 017</p>
+            <p className="text-sm mb-1">Ph. No: +91 99626 55322 / +91 97909 45132</p>
+            <p className="text-sm">Email: connect@velveer.com</p> 
+          </div>
+    {/* Social Icons */}
+          {/* <div className="flex gap-4 mt-4">  {/* Adjusted marginTop for more space */}
+            {/* <a href="#" className="text-white hover:text-gray-300">
+              <FaFacebookF />
             </a>
-          </p>
-        </div>
+            <a href="#" className="text-white hover:text-gray-300">
+              <FaTwitter />
+            </a>
+            <a href="#" className="text-white hover:text-gray-300">
+              <FaLinkedinIn />
+            </a>
+          </div>  */}
+</div>
 
         {/* Service Offering */}
         <div>
@@ -62,58 +67,45 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">Contents</h3>
           <ul className="text-sm space-y-2 text-white">
             <li>
-              <Link href="/" className="hover:underline">HOME</Link>
+              <Link href="/" className="hover:underline">Home</Link>
             </li>
             <li>
-              <Link href="/about" className="hover:underline">ABOUT</Link>
+              <Link href="/about" className="hover:underline">About</Link>
             </li>
             <li>
-              <Link href="/services" className="hover:underline">OUR SERVICES</Link>
+              <Link href="/services" className="hover:underline">Our Services</Link>
             </li>
             <li>
-              <Link href="/training" className="hover:underline">TRAINING</Link>
+              <Link href="/training" className="hover:underline">Training</Link>
             </li>
+           
             <li>
-              <Link href="/contact" className="hover:underline">CONTACT</Link>
+              <Link href="/expert-resource" className="hover:underline">Expert Manpower Sourcing</Link>
             </li>
-            <li>
-              <Link href="/expert-resource" className="hover:underline">Expert Resource Consulting</Link>
+
+             <li>
+              <Link href="/contact" className="hover:underline">Contact</Link>
             </li>
           </ul>
         </div>
 
         {/* Address */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Address</h3>
-          <div className="mb-4"> {/* Container for Velveer Address */}
-             <h4 className="text-base font-medium mb-2">Chennai</h4>{/* Slightly smaller subheading */}
-            <p className="text-sm mb-1">Velveer Corporate Solutions Private Limited,</p>
-            <p className="text-sm mb-1">3rd Floor , 14 Periyar Road</p>
-            <p className="text-sm mb-1">T.Nagar, Chennai ,Tamilnadu - 600 017</p>
-            {/* <p className="text-sm mb-1">+91 44 4380 6826</p>
-            <p className="text-sm">info@simonnsons.com</p>  */}
-          </div>
+         
 
           <div> {/* Container for 5M Global LLC Address */}
+
+             <h3 className="text-lg font-semibold mb-4">Partner Representative Office</h3>
              <h4 className="text-base font-medium mb-2">Dubai</h4> {/* Slightly smaller subheading */}
-            <p className="text-sm mb-1">5M Global LLC,</p>
-            <p className="text-sm mb-1">Dubai,</p>
+            <p className="text-sm mb-1">5M Global LLC</p>
+            <p className="text-sm mb-1">Dubai</p>
             <p className="text-sm mb-1">United Arab Emirates</p>
+             <p className="text-sm mb-1">Ph. No: +91 99626 55322 / +91 97909 45132</p>
+            <p className="text-sm">Email: connect@velveer.com</p> 
           </div>
 
 
-          {/* Social Icons */}
-          <div className="flex gap-4 mt-4">  {/* Adjusted marginTop for more space */}
-            <a href="#" className="text-white hover:text-gray-300">
-              <FaFacebookF />
-            </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              <FaTwitter />
-            </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              <FaLinkedinIn />
-            </a>
-          </div>
+        
         </div>
       </div>
 

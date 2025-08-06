@@ -10,7 +10,7 @@ const ExpertPage = () => {
   const headerImage =
     'https://res.cloudinary.com/daggx9p24/image/upload/v1754307284/196_paard9.jpg';
   const heroImage =
-    'https://res.cloudinary.com/dabyqx1mz/image/upload/v1746890934/samples/cup-on-a-table.jpg';
+    'https://res.cloudinary.com/daggx9p24/image/upload/v1754479549/466_pgzegq.jpg';
 
   return (
     <>
