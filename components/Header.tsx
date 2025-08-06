@@ -24,7 +24,7 @@ export default function Header() {
     { href: "/about", label: "About" },
     { href: "/services", label: "Our Services" },
     { href: "/training", label: "Training" },
-    { href: "/expert-resource-consulting", label: "Expert Resource Consulting" },
+    { href: "/expert-resource-consulting", label: "Expert Manpower Sourcing" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -48,7 +48,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex space-x-10 items-center text-[14px] font-medium">
+          <nav className="hidden md:flex space-x-10 items-center text-[16px] font-medium">
             {navLinks.map(({ href, label }) => (
               <AnimatedLink key={href} href={href} active={pathname === href}>
                 {label}

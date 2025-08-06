@@ -46,7 +46,7 @@ const ServicesPage = () => {
         "DLP - Data Loss Prevention",
         "ISO/IEC 27701 - Privacy Information Management System",
       ],
-      image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754112348/10782746_19197288_yds39m.svg",
+      image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754481462/4066_a5i0fc.jpg",
       imagePosition: "right",
     },
     {
@@ -119,7 +119,7 @@ const ServicesPage = () => {
         "Expert ERP sourcing",
         "Training",
       ],
-      image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754310907/2149092255_hj589y.jpg",
+      image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754480992/2147626516_ry82g4.jpg",
       imagePosition: "right",
     },
   ];

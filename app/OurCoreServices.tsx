@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BrainCircuit, Car, LayoutGrid, Scale, ServerCog, ShieldCheck } from "lucide-react";
 
 import {
     Card,
@@ -34,42 +34,42 @@ interface Service {
 const OurCoreServices: React.FC = () => {
     const services: Service[] = [
         {
-            icon: Database,
+            icon: ServerCog,
             title: "IT Governance and Strategy",
             description: "Almost every aspect of a business relies on IT in one way or another...",
             href: "/services#it-governance",
             color: "text-blue-600",
         },
         {
-            icon: Building2,
+            icon: Scale,
             title: "Governance, Risk and Compliance (GRC)",
             description: "GRC is a sign of commitment of every successful organization...",
             href: "/services#grc",
             color: "text-green-600",
         },
         {
-            icon: BarChart3,
+            icon: Car,
             title: "Automotive Cybersecurity",
             description: "Connectivity is a cornerstone for a new business model...",
             href: "/services#automotive-cybersecurity",
             color: "text-purple-600",
         },
         {
-            icon: Monitor,
+            icon: ShieldCheck,
             title: "Cybersecurity Assessment Services",
             description: "With the current advanced technologies, businesses can get more...",
             href: "/services#cybersecurity-assessment",
             color: "text-orange-600",
         },
         {
-            icon: Shield,
+            icon: BrainCircuit,
             title: "AI Transformation Services",
             description: "AI is rapidly transforming organizations...",
             href: "/services#ai-transformation",
             color: "text-red-600",
         },
         {
-            icon: Users,
+            icon: LayoutGrid,
             title: "Enterprise Resource Planning (ERP)",
             description: "Selecting a suitable ERP solution can be a daunting task...",
             href: "/services#erp",

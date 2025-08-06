@@ -10,6 +10,7 @@ interface HeroSlide {
   id: number;
   image: string;
   serviceTitle: string;
+  description: string; // Added description
   bgColor: string;
 }
 
@@ -18,48 +19,56 @@ const heroSlides: HeroSlide[] = [
     id: 1,
     image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754304183/2150377138_lpqly3.jpg",
     serviceTitle: "IT Governance and Strategy",
+    description: "IT Governance and Strategy ensure that IT investments deliver value to the organization, effective risk management and compliance with regulations",
     bgColor: "bg-gradient-to-r from-orange-500/90 to-orange-600/90",
   },
   {
     id: 2,
     image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754301989/118032_iyf9s6.jpg",
     serviceTitle: "GRC- Governance, Risk and Compliance",
+    description: "Protecting your digital journey Stay secure from cyber threats, safe from legal complexities and managing operational challenges",
     bgColor: "bg-gradient-to-r from-purple-600/90 to-purple-700/90",
   },
   {
     id: 3,
     image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754304494/105390_reqpcr.jpg",
     serviceTitle: "Automotive Security",
+    description: "Automotive Cybersecurity is the protection of ECUs, Communication Networks, Software and Data from malicious attacks, damage, unauthorized access, or manipulation.",
     bgColor: "bg-gradient-to-r from-yellow-500/90 to-yellow-600/90",
   },
   {
     id: 4,
     image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754304605/125636_jqdcxa.jpg",
     serviceTitle: "Cyber Security Assessment",
+    description: "While you cannot prevent a security attack or an event, you can always protect or manage the extent of the impact caused by regular assessment",
     bgColor: "bg-gradient-to-r from-orange-700/90 to-orange-800/90",
   },
   {
     id: 5,
     image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754302203/2151908096_kupthy.jpg",
     serviceTitle: "AI Consulting",
+    description: "AI is transforming businesses in an unimaginable magnitude and organizations must be prepared to adopt proactively to enhance productivity and innovation. We help to unlock the power of AI.",
     bgColor: "bg-gradient-to-r from-green-500/90 to-green-600/90",
   },
   {
     id: 6,
     image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754302462/2150103578_frtc5r.jpg",
     serviceTitle: "ERP Advisory",
+    description: "Selecting suitable Enterprise Resource Planning (ERP) solution is a haunting exercise for many of the companies due to inadequate internal expertise. We assist the clients in making right choices in the selection of ERP solutions",
     bgColor: "bg-gradient-to-r from-blue-500/90 to-blue-600/90",
   },
   {
     id: 7,
     image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754302801/18026_vhyvde.jpg",
     serviceTitle: "Expert Resource Consulting",
+    description: "In the fast-paced business world, fluctuations in workload and project demands are not uncommon. We help with the right experts with the right skills and experience to support the  projects",
     bgColor: "bg-gradient-to-r from-indigo-500/90 to-indigo-600/90",
   },
   {
     id: 8,
     image: "https://res.cloudinary.com/daggx9p24/image/upload/v1754303086/16288_ntqmod.jpg",
     serviceTitle: "Training and Coaching",
+    description: "Empowering you to build your business or supercharge your career through our well designed programs as per the business requirements and market demands.",
     bgColor: "bg-gradient-to-r from-pink-500/90 to-pink-600/90",
   },
 ];
@@ -125,7 +134,7 @@ function AnimatedHeroSlide({ slide }: AnimatedHeroSlideProps) {
         </div>
       </motion.div>
 
-      {/* Right side with only the service title */}
+      {/* Right side with the service title and description */}
       <motion.div
         className={`w-full md:w-[calc(50%-110px)] text-white flex flex-col justify-center items-center p-8 ${slide.bgColor} order-last md:order-none`}
         variants={textVariants}
@@ -134,9 +143,12 @@ function AnimatedHeroSlide({ slide }: AnimatedHeroSlideProps) {
         exit="exit"
         key={`text-${slide.id}`}
       >
-        <h2 className="text-3xl md:text-5xl font-bold text-center">
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-4">
           {slide.serviceTitle}
         </h2>
+        <p className="text-lg mt-2 text-center">
+          {slide.description}
+        </p>
       </motion.div>
     </section>
   );

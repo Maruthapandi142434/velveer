@@ -36,8 +36,7 @@ export default function Home() {
             Ready to Elevate Your Business?
           </h2>
           <p className="text-gray-700 mb-8 text-lg">
-            Contact our experts for a consultation and discover how our IT
-            consulting and business solutions can drive your success.
+          We give our best to vitalize your bussiness to feel the experience , get in touch with Us
           </p>
           <Link
             href="/contact"
