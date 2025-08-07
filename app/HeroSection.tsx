@@ -130,7 +130,7 @@ function AnimatedHeroSlide({ slide }: AnimatedHeroSlideProps) {
         />
         {/* Add a subtle background to the text for better readability */}
         <div className="absolute inset-0 flex items-center justify-center bg-black/40 text-white text-center px-4 text-xl md:text-2xl font-semibold z-10">
-          <span className=" p-2 rounded">Stay ahead of cyber threats, <br />legal complexities, and operational  <br />challenges with our expert services</span>
+          {/* <span className=" p-2 rounded">Stay ahead of cyber threats, <br />legal complexities, and operational  <br />challenges with our expert services</span> */}
         </div>
       </motion.div>
 
@@ -215,7 +215,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Indicator Dots */}
-      <div className="absolute lg:bottom-[-30px] bottom-28 left-0 right-0 flex justify-center space-x-2">
+      <div className="absolute lg:bottom-[-30px] bottom-[-10px] left-0 right-0 flex justify-center space-x-2">
         {heroSlides.map((_, index) => (
           <button
             key={index}

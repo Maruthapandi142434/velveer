@@ -100,7 +100,7 @@ export default function Footer() {
             <p className="text-sm mb-1">5M Global LLC</p>
             <p className="text-sm mb-1">Dubai</p>
             <p className="text-sm mb-1">United Arab Emirates</p>
-             <p className="text-sm mb-1">Ph. No: +91 99626 55322 / +91 97909 45132</p>
+             <p className="text-sm mb-1">Ph. No: +971 50 552 4713 / +91 97909 45132</p>
             <p className="text-sm">Email: connect@velveer.com</p> 
           </div>
 

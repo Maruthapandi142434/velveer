@@ -29,7 +29,7 @@ const ServicesPage = () => {
         id: "grc",
       title: "Governance, Risk and Compliance (GRC)",
       description:
-        "GRC is a sign of commitment of every successful organization promoting responsibility, accountability and trust.  GRC comprises strategies, methods and tools to manage a company’s overall governance, risk and compliance. Stay ahead of cyber threats, legal complexities, and operational challenges with our expert services:",
+        "GRC is a sign of commitment of every successful organization promoting responsibility, accountability and trust.  GRC comprises strategies, methods and tools to manage a company's overall governance, risk and compliance. Stay ahead of cyber threats, legal complexities, and operational challenges with our expert services:",
       points: [
         "ISO 9001 – Quality Management System",
         "ISO 27001 – Information Security Management System",
@@ -65,7 +65,7 @@ const ServicesPage = () => {
       imagePosition: "left",
     },
     {
-      title: "Cyber Security Assessmenrt",
+      title: "Cyber Security Assessment",
           id: "cybersecurity-assessment",
       description:
         "With the current advanced technologies, business can get more than ever from the IT resource. However, these technologies make Cybersecurity more complex to manage and Cyber criminals continue to exploit their technology and methods to create more business damage.  While you cannot prevent a security attack or an event, you can always protect or manage the extent of the impact by conducting regular assessments.",
@@ -139,7 +139,7 @@ const ServicesPage = () => {
     });
   };
 
-    // Smooth scroll to hash if present
+  // Smooth scroll to hash if present
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
@@ -151,110 +151,117 @@ const ServicesPage = () => {
       }
     }
   }, []);
-  return (
-    <>
-   
-<section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px] relative">
 
-  {/* Right Side - Image (Moved to the top for mobile) */}
-  <div className="relative w-full h-64 md:h-full order-first md:order-last">
-    <Image
-      src="https://res.cloudinary.com/daggx9p24/image/upload/v1754306512/124845_sseuqb.jpg" // Replace with your hand image if needed
-      alt="Team Diversity"
-      fill
-      className="object-cover object-center"
-      priority
-    />
-  </div>
+return (
+  <>
+    <section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px] relative">
 
-  {/* Left Side - Title & Breadcrumb with Background Image */}
-  <div className="relative flex items-center justify-center bg-gray-100 overflow-hidden">
+      {/* Right Side - Image (Moved to the top for mobile) */}
+      <div className="relative w-full h-64 md:h-full order-first md:order-last">
+        <Image
+          src="https://res.cloudinary.com/daggx9p24/image/upload/v1754306512/124845_sseuqb.jpg"
+          alt="Team Diversity"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+      </div>
 
-    {/* Desktop-Only Background Image */}
-    <div className="absolute inset-0 bg-cover bg-center hidden md:block"
-         style={{ backgroundImage: `url(https://res.cloudinary.com/daggx9p24/image/upload/v1746535885/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-70858_a4q9sq.avif)` }}>
-    </div>
+      {/* Left Side - Title & Breadcrumb with Background Image */}
+      <div className="relative flex items-center justify-center bg-gray-100 overflow-hidden">
 
-    {/* Content (Title & Breadcrumb) - Needs z-index to be on top */}
-    <div className="p-6 md:p-8 lg:p-12 text-left max-w-xl relative z-10">
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4">
-        Our <span className="text-teal-600">Services</span>
-      </h1>
-      <div className="h-0.5 w-12 bg-teal-600 mb-2 md:mb-4"></div>
-      <div className="text-sm text-gray-600 flex items-center">
+        {/* Desktop-Only Background Image */}
+        <div className="absolute inset-0 bg-cover bg-center hidden md:block"
+             style={{ backgroundImage: `url(https://res.cloudinary.com/daggx9p24/image/upload/v1746535885/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-70858_a4q9sq.avif)` }}>
+        </div>
+
+        {/* Content (Title & Breadcrumb) - Needs z-index to be on top */}
+        <div className="p-6 md:p-8 lg:p-12 text-left max-w-xl relative z-10">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4">
+            Our <span className="text-teal-600">Services</span>
+          </h1>
+          <div className="h-0.5 w-12 bg-teal-600 mb-2 md:mb-4"></div>
+          <div className="text-sm text-gray-600 flex items-center">
+
+          </div>
+        </div>
 
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
-      <section className="py-20 px-4 md:px-8 lg:px-20 bg-white">
+    {/* Add overflow-hidden to prevent horizontal scrolling */}
+    <section className="py-12 md:py-20 px-4 md:px-8 lg:px-20 bg-white overflow-hidden">
 
-
-        <div className="space-y-32 max-w-5xl mx-auto">
-          {updatedServices.map((service, index) => (  // Use updatedServices
+      <div className="space-y-16 md:space-y-32 max-w-5xl mx-auto">
+        {updatedServices.map((service, index) => (
+          <motion.div
+            key={service.id}
+            id={service.id}
+            initial={{ 
+              opacity: 0, 
+              // Reduce animation distance on mobile to prevent overflow
+              x: service.imagePosition === "left" ? -10 : 10
+            }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-12 scroll-mt-24"
+          >
             <motion.div
-              key={service.id}
-              id={service.id}
-              initial={{ opacity: 0, x: service.imagePosition === "left" ? -100 : 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 scroll-mt-24"
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className={`${service.imagePosition === "left" ? "lg:order-1" : "lg:order-2"}`}
             >
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className={`${service.imagePosition === "left" ? "lg:order-1" : "lg:order-2"}`}
-              >
-                <div className="relative w-[400px] max-w-full h-[400px] mx-auto rounded-full overflow-hidden ">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className={`${service.imagePosition === "left" ? "lg:order-2" : "lg:order-1"}`}
-              >
-                <div className="bg-white p-2">
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed mb-4 text-justify">
-                    {service.description}
-                  </p>
-                  <ul
-                    className={`list-disc pl-5 text-gray-700 space-y-2 overflow-hidden transition-all duration-300 ease-in-out ${service.points.length > 5 && !expandedServices[index] ? "max-h-[150px]" : "max-h-none"
-                      }`}
-                  >
-                    {service.points.map((point, idx) => (
-                      <li key={idx}>{point}</li>
-                    ))}
-                  </ul>
-                  {service.points.length > 5 && (
-                    <button
-                      onClick={() => toggleExpand(index)}
-                      className="text-teal-500 hover:text-teal-700 focus:outline-none"
-                    >
-                      {expandedServices[index] ? "Read Less" : "Read More"}
-                    </button>
-                  )}
-                </div>
-              </motion.div>
+              {/* Responsive image container */}
+              <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px] aspect-square mx-auto rounded-full overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, (max-width: 1024px) 360px, 400px"
+                />
+              </div>
             </motion.div>
-          ))}
-        </div>
-      </section>
 
-    </>
-  );
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className={`${service.imagePosition === "left" ? "lg:order-2" : "lg:order-1"}`}
+            >
+              <div className="bg-white p-2">
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-3 md:mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-3 md:mb-4 text-justify text-sm sm:text-base">
+                  {service.description}
+                </p>
+                <ul
+                  className={`list-disc pl-5 text-gray-700 space-y-1 sm:space-y-2 overflow-hidden transition-all duration-300 ease-in-out text-sm sm:text-base ${service.points.length > 5 && !expandedServices[index] ? "max-h-[120px] sm:max-h-[150px]" : "max-h-none"
+                    }`}
+                >
+                  {service.points.map((point, idx) => (
+                    <li key={idx}>{point}</li>
+                  ))}
+                </ul>
+                {service.points.length > 5 && (
+                  <button
+                    onClick={() => toggleExpand(index)}
+                    className="text-teal-500 hover:text-teal-700 focus:outline-none text-sm sm:text-base mt-2"
+                  >
+                    {expandedServices[index] ? "Read Less" : "Read More"}
+                  </button>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+
+  </>
+);
 };
 
 export default ServicesPage;
