@@ -26,13 +26,14 @@ const ContactPage = () => {
   const [formStatus, setFormStatus] = useState({
     message: null,
     error: false,
+    showPopup: false,
   });
 
-  // Auto-hide success message after 5 seconds
+  // Auto-hide popup after 5 seconds
   useEffect(() => {
-    if (formStatus.message && !formStatus.error) {
+    if (formStatus.showPopup && !formStatus.error) {
       const timer = setTimeout(() => {
-        setFormStatus({ message: null, error: false });
+        setFormStatus({ message: null, error: false, showPopup: false });
       }, 5000); // 5 seconds
 
       return () => clearTimeout(timer);
@@ -43,17 +44,22 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
+  const closePopup = () => {
+    setFormStatus({ message: null, error: false, showPopup: false });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate required fields
-    const requiredFields = ['name', 'email', 'phone', 'subject'];
+    const requiredFields = ['name', 'email', 'phone', 'city', 'requirement', 'subject'];
     const missingFields = requiredFields.filter(field => !formData[field].trim());
     
     if (missingFields.length > 0) {
       setFormStatus({ 
         message: `Please fill in all required fields: ${missingFields.join(', ')}`, 
-        error: true 
+        error: true,
+        showPopup: true
       });
       return;
     }
@@ -70,7 +76,11 @@ const ContactPage = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setFormStatus({ message: data.message, error: false });
+        setFormStatus({ 
+          message: "Thank you for your message. It has been sent.", 
+          error: false, 
+          showPopup: true 
+        });
         setFormData({
           name: "",
           email: "",
@@ -81,16 +91,86 @@ const ContactPage = () => {
           message: "",
         });
       } else {
-        setFormStatus({ message: data.message, error: true });
+        setFormStatus({ 
+          message: data.message || "Failed to send message. Please try again.", 
+          error: true, 
+          showPopup: true 
+        });
       }
     } catch (error) {
       console.error("Form submission error:", error);
-      setFormStatus({ message: "An unexpected error occurred", error: true });
+      setFormStatus({ 
+        message: "An unexpected error occurred. Please try again.", 
+        error: true, 
+        showPopup: true 
+      });
     }
   };
 
   return (
     <>
+      {/* Pop-up Notification */}
+      {formStatus.showPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 ease-out">
+            <div className="p-6">
+              {/* Icon */}
+              <div className="flex justify-center mb-4">
+                {formStatus.error ? (
+                  // Error Icon (X)
+                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+                    <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </div>
+                ) : (
+                  // Success Icon (Checkmark)
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                    <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+              
+              {/* Title */}
+              <h3 className="text-lg font-semibold text-center mb-2 text-gray-900">
+                {formStatus.error ? "Error" : "Success!"}
+              </h3>
+              
+              {/* Message */}
+              <p className="text-gray-600 text-center mb-6">
+                {formStatus.message}
+              </p>
+              
+              {/* Close Button */}
+              {/* <div className="flex justify-center">
+                <button
+                  onClick={closePopup}
+                  className={`px-6 py-2 rounded-lg font-medium transition-colors duration-200 ${
+                    formStatus.error 
+                      ? "bg-red-600 hover:bg-red-700 text-white" 
+                      : "bg-green-600 hover:bg-green-700 text-white"
+                  }`}
+                >
+                  OK
+                </button>
+              </div> */}
+            </div>
+            
+            {/* Close X button in top right */}
+            <button
+              onClick={closePopup}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Split Hero Section */}
       <section className="grid grid-cols-1 md:grid-cols-2 min-h-[350px] lg:min-h-[450px] relative">
         {/* Left: Title and Breadcrumb with Background Image */}
@@ -127,17 +207,6 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Contact Form */}
             <div>
-              {formStatus.message && (
-                <div
-                  className={`mb-4 p-3 rounded transition-opacity duration-300 ${
-                    formStatus.error 
-                      ? "bg-red-100 text-red-800 border border-red-300" 
-                      : "bg-green-100 text-green-800 border border-green-300"
-                  }`}
-                >
-                  {formStatus.message}
-                </div>
-              )}
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
@@ -193,7 +262,7 @@ const ContactPage = () => {
                       className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline focus:border-cyan-500"
                       value={formData.city}
                       onChange={handleChange}
-                       required
+                      required
                     />
                   </div>
                 </div>
@@ -208,7 +277,7 @@ const ContactPage = () => {
                     className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline focus:border-cyan-500"
                     value={formData.requirement}
                     onChange={handleChange}
-                     required
+                    required
                   />
                 </div>
                 <div>
